@@ -33,7 +33,7 @@ var Pointeraccuracy = {
 				thiz.pointerModeNative = 'coarse'; // touch screen
 			}
 
-			console.log('NATIVE:' + thiz.pointerModeNative);
+			alert('NATIVE:' + thiz.pointerModeNative);
 
 			// The viewport size may change in a desktop environment, therefore we need to listen to changes.
 			window.onresize = function(e) {
