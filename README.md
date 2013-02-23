@@ -31,7 +31,7 @@ The algorithm then is:
 5. 	Otherwise, use 'fine'
 
 # Usage
-See (demo.html)
+See demo (http://n-fuse.github.com/pointeraccuracy.js/demo.html)
 
 ## Dependencies
 * A polyfill for ES5 Object.create() must exist for older browsers.
