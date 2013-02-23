@@ -15,16 +15,13 @@
  * @license pointeraccuracy.js is (c) 2013 n-fuse GmbH [All rights reserved] and licensed under the MIT license.
  */
 
-"use strict";
-
 var Pointeraccuracy = {
 		listener: null,
 		resolution: null,
 		pointerModeNative: null,
 		pointerMode: null,
-		init: function(cb) {
+		init: function() {
 			var thiz = this;
-			thiz.listener = cb;
 			
 			// Find out whether the browser supports the pointer mode media query and if so, get it
 			if (window.matchMedia('(pointer:fine)').matches) {
@@ -32,8 +29,6 @@ var Pointeraccuracy = {
 			} else if (window.matchMedia('(pointer:coarse)').matches) {
 				thiz.pointerModeNative = 'coarse'; // touch screen
 			}
-
-			alert('NATIVE:' + thiz.pointerModeNative);
 
 			// The viewport size may change in a desktop environment, therefore we need to listen to changes.
 			window.onresize = function(e) {
@@ -96,7 +91,6 @@ var Pointeraccuracy = {
 					thiz.listener(mode);
 				}
 			}
-			console.log('Using pointer mode: ' + mode);
 		},
 		
 		getPointerMode: function() {
@@ -115,7 +109,6 @@ var Pointeraccuracy = {
 				window.matchMedia('screen and (min-resolution: 2dppx)').matches ||
 				window.matchMedia('screen and (-o-min-device-pixel-ratio: 2/1)').matches) {
 				retVal = true;
-				alert('DPR:' + retVal);
 			}
 			return retVal;
 		},

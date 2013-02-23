@@ -12,7 +12,8 @@
 			}
     		
 			var pointeraccuracy = Object.create(Pointeraccuracy);
-			pointeraccuracy.init(writeMode);
+			pointeraccuracy.setListener(writeMode);
+			pointeraccuracy.init();
 		};
 	</script>
   </head>
