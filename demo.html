@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>pointeraccuracy.js Demo</title>
+    <script src="pointeraccuracy.src.js"></script>
+    <script type="text/javascript">
+    	window.onload = function() {
+    		// Listener function
+			var writeMode = function(mode) {
+				document.getElementById('body').innerHTML = '<div>Current pointer mode: ' + mode + '</div>';
+			}
+    		
+			var pointeraccuracy = Object.create(Pointeraccuracy);
+			pointeraccuracy.init(writeMode);
+		};
+	</script>
+  </head>
+  <body id="body">
+  
+  </body>
+</html>
