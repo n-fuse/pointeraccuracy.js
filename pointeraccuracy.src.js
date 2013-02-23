@@ -115,6 +115,7 @@ var Pointeraccuracy = {
 				window.matchMedia('screen and (min-resolution: 2dppx)').matches ||
 				window.matchMedia('screen and (-o-min-device-pixel-ratio: 2/1)').matches) {
 				retVal = true;
+				alert('DPR:' + retVal);
 			}
 			return retVal;
 		},
