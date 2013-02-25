@@ -20,6 +20,12 @@ var Pointeraccuracy = {
 		resolution: null,
 		pointerModeNative: null,
 		pointerMode: null,
+        delay:1000,
+        isResizing: false,
+        onResizeStart: null,
+        onResizeEnd: null,
+
+
 		init: function() {
 			var thiz = this;
 			
@@ -32,15 +38,30 @@ var Pointeraccuracy = {
 
 			// The viewport size may change in a desktop environment, therefore we need to listen to changes.
 			window.onresize = function(e) {
-				thiz.classifyScreenSize();
-				thiz.classify();
+
+                if (!thiz.isResizing) {
+                    thiz.isResizing = true;
+
+                    if (typeof thiz.onResizeStart === "function") {
+                        thiz.onResizeStart(e);
+                    };
+
+                    thiz._debounce(function(e) {
+                        thiz.isResizing = false;
+                        if(typeof thiz.onResizeEnd === "function") {
+                            thiz.onResizeEnd(e);
+                        }
+                        thiz.classifyScreenSize();
+                        thiz.classify();
+                    }, thiz.delay).apply(thiz, e);
+                }
 			};
 			// Initial classification		
 			thiz.classifyScreenSize();
 			thiz.classify();
 		},
-		
-		// The classifier returns either 'fine' or 'coarse' 
+
+		// The classifier returns either 'fine' or 'coarse'
 		// thus canceling out 'none' and preventing 'undefined' which are useless in many cases.
 		classify: function() {
 			var thiz = this;
@@ -78,11 +99,26 @@ var Pointeraccuracy = {
 			}			
 		},
 		
-		setListener: function(cb) {
+		setModeListener: function(cb) {
 			var thiz = this;
 			thiz.listener = cb;
 		},
-		
+
+        setResizeStartListener: function(cb) {
+            var thiz = this;
+            thiz.onResizeStart = cb;
+        },
+
+        setResizeEndListener: function(cb) {
+            var thiz = this;
+            thiz.onResizeEnd = cb;
+        },
+
+        setDelay: function(delay) {
+            var thiz = this;
+            thiz.delay = delay;
+        },
+
 		setPointerMode: function(mode) {
 			var thiz = this;
 			if (thiz.pointerMode !== mode) {
@@ -119,5 +155,28 @@ var Pointeraccuracy = {
 
 		isPointerCoarse: function() {
 			return this.pointerMode === 'coarse';
-		}
-};
+		},
+
+        _debounce: function(func, wait, immediate) {
+            var result, timeout;
+            timeout = result = null;
+            return function() {
+                var args, callNow, context, later;
+                context = this;
+                args = arguments;
+                later = function() {
+                    timeout = null;
+                    if (!immediate) {
+                        return result = func.apply(context, args);
+                    }
+                };
+                callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) {
+                    result = func.apply(context, args);
+                }
+                return result;
+            }
+        }
+    };
