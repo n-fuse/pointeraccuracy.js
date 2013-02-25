@@ -37,8 +37,9 @@ var Pointeraccuracy = {
 			}
 
 			// The viewport size may change in a desktop environment, therefore we need to listen to changes.
-			window.onresize = function(e) {
+            var resize = function(e) {
 
+                // we have to debounce the classification, so its not fired endlessly
                 if (!thiz.isResizing) {
                     thiz.isResizing = true;
 
@@ -55,8 +56,15 @@ var Pointeraccuracy = {
                         thiz.classify();
                     }, thiz.delay).apply(thiz, e);
                 }
-			};
-			// Initial classification		
+            };
+
+            if (window.addEventListener){
+                window.addEventListener('resize', resize, false);
+            } else if (el.attachEvent){
+                window.attachEvent('onresize', resize);
+            }
+
+			// Initial classification
 			thiz.classifyScreenSize();
 			thiz.classify();
 		},
