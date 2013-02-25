@@ -6,13 +6,25 @@
     <script src="pointeraccuracy.src.js"></script>
     <script type="text/javascript">
     	window.onload = function() {
+
+            function appendText(text) {
+                var div = document.createElement('div');
+                div.innerHTML = text;
+                document.body.appendChild(div);
+            }
+
     		// Listener function
 			var writeMode = function(mode) {
-				document.getElementById('body').innerHTML = '<div style="font-size: 2em;">Current pointer mode: ' + mode + '</div>';
+                appendText('Current pointer mode: ' + mode );
 			}
-    		
-			var pointeraccuracy = Object.create(Pointeraccuracy);
-			pointeraccuracy.setListener(writeMode);
+
+            var pointeraccuracy = Object.create(Pointeraccuracy);
+
+            pointeraccuracy.setModeListener(writeMode);
+            pointeraccuracy.setDelay(1200); //default 1000
+            pointeraccuracy.setResizeStartListener(function() { appendText('ResizeStart');});
+            pointeraccuracy.setResizeEndListener(function() { appendText('ResizeEnd');});
+
 			pointeraccuracy.init();
 		};
 	</script>
