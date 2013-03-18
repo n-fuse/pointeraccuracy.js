@@ -138,6 +138,7 @@ var Pointeraccuracy = {
 		},
 		
 		getPointerMode: function() {
+			var thiz = this;
 			return thiz.pointerMode;
 		},
 		
