@@ -37,5 +37,5 @@ See demo (http://n-fuse.github.com/pointeraccuracy.js/demo.html)
 * ES5 Object.create() polyfill must exist for older browsers.
 * window.matchMedia polyfill must exist for older browsers.
 
-# License
+## License
 [MIT License] (LICENSE.txt)
