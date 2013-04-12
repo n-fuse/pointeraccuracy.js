@@ -1,4 +1,4 @@
-pointeraccuracy.js
+pointeraccuracy.js v0.9.0
 ==============
 
 Heuristically determine the pointer accuracy &mdash; 'coarse' or 'fine' &mdash; for a device/ user agent.
