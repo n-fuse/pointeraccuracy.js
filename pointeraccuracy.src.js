@@ -75,7 +75,7 @@ var Pointeraccuracy = {
 			var thiz = this;
 			var mode;
 			if (thiz.pointerModeNative !== null) { // If pointer MQ is supported, just use its result
-				mode = pointerModeNative;
+				mode = thiz.pointerModeNative;
 			} else {
 				if (thiz.hasDoubleDevicePixelRatio()) { // Screens with DPR = 2 can these days only be found on small-medium screen touch devices 
 					mode = 'coarse';
