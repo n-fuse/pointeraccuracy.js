@@ -34,8 +34,8 @@ The algorithm then is:
 See demo (http://n-fuse.github.com/pointeraccuracy.js/demo.html)
 
 ## Dependencies
-* ES5 Object.create() polyfill must exist for older browsers.
-* window.matchMedia polyfill must exist for older browsers.
+* ES5 `Object.create()` polyfill must exist for older browsers.
+* `window.matchMedia` polyfill must exist for older browsers.
 
 ## License
 [MIT License] (LICENSE.txt)
