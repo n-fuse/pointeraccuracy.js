@@ -1,11 +1,11 @@
 {
   "name": "pointeraccuracy.js",
-  "version": "0.0.2",
+  "version": "0.9.2",
   "description": "Heuristically determine the pointer accuracy",
   "author": "n-fuse Gmbh <info@n-fuse.de>",
   "contributors": [
     "Thomas Hoppe"
-  ],  
+  ],
 
   "homepage": "https://github.com/n-fuse/pointeraccuracy.js"
 } 
