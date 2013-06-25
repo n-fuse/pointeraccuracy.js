@@ -18,14 +18,9 @@
                 appendText('Current pointer mode: ' + mode );
 			}
 
-            var pointeraccuracy = Object.create(Pointeraccuracy);
-
-            pointeraccuracy.setModeListener(writeMode);
-            pointeraccuracy.setDelay(1200); //default 1000
-            pointeraccuracy.setResizeStartListener(function() { appendText('ResizeStart');});
-            pointeraccuracy.setResizeEndListener(function() { appendText('ResizeEnd');});
-
-			pointeraccuracy.init();
+	            var pointeraccuracy = Object.create(Pointeraccuracy);
+	            pointeraccuracy.setModeListener(writeMode);
+		    pointeraccuracy.init();
 		};
 	</script>
   </head>
