@@ -45,7 +45,7 @@ var Pointeraccuracy = {
                                            // use its result
       mode = thiz.pointerModeNative;
     } else {
-      if (thiz.hasTouchSupport) {
+      if (thiz.hasTouchSupport()) {
         mode = 'coarse';
       } else {
         mode = 'fine';
