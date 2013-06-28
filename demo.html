@@ -1,35 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>pointeraccuracy.js Demo</title>
-    <script src="pointeraccuracy.src.js"></script>
-    <script type="text/javascript">
-    	window.onload = function() {
+<head>
+<meta charset="utf-8">
+<title>pointeraccuracy.js Demo</title>
+<script src="src/pointeraccuracy.js"></script>
+<script type="text/javascript">
+  window.onload = function() {
 
-            function appendText(text) {
-                var div = document.createElement('div');
-                div.innerHTML = text;
-                document.body.appendChild(div);
-            }
+    function appendText(text) {
+      var div = document.createElement('div');
+      div.innerHTML = text;
+      document.body.appendChild(div);
+    }
 
-    		// Listener function
-			var writeMode = function(mode) {
-                appendText('Current pointer mode: ' + mode );
-			}
+    // Listener function
+    var writeMode = function(mode) {
+      appendText('Current pointer mode: ' + mode);
+    }
 
-            var pointeraccuracy = Object.create(Pointeraccuracy);
+    var pointeraccuracy = Object.create(Pointeraccuracy);
+    pointeraccuracy.setModeListener(writeMode);
+    pointeraccuracy.init();
+  };
+</script>
+</head>
+<body id="body">
 
-            pointeraccuracy.setModeListener(writeMode);
-            pointeraccuracy.setDelay(1200); //default 1000
-            pointeraccuracy.setResizeStartListener(function() { appendText('ResizeStart');});
-            pointeraccuracy.setResizeEndListener(function() { appendText('ResizeEnd');});
-
-			pointeraccuracy.init();
-		};
-	</script>
-  </head>
-  <body id="body">
-  
-  </body>
+</body>
 </html>

@@ -1,11 +1,28 @@
 {
-  "name": "pointeraccuracy.js",
+  "name": "pointeraccuracy",
   "version": "0.9.2",
   "description": "Heuristically determine the pointer accuracy",
+  "homepage": "https://github.com/n-fuse/pointeraccuracy.js",
   "author": "n-fuse Gmbh <info@n-fuse.de>",
   "contributors": [
     "Thomas Hoppe"
-  ],  
-
-  "homepage": "https://github.com/n-fuse/pointeraccuracy.js"
-} 
+  ],
+  "licenses" : [
+      {
+          "type" : "MIT"
+      }
+  ],
+  "bugs": {
+    "url": "https://github.com/n-fuse/pointeraccuracy.js/issues"
+  },  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/n-fuse/pointeraccuracy.js.git"
+  },  
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-nodeunit": "latest",
+    "grunt-contrib-uglify": "latest"
+  }
+}

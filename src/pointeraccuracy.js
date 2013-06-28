@@ -1,6 +1,6 @@
 /**
- * pointeraccuracy.js: Heuristically determine the pointer accuracy -- 'coarse'
- * or 'fine' -- for a device/ user agent.
+ * pointeraccuracy.js: Heuristically determine the pointer accuracy 
+ * -- 'coarse' or 'fine' -- for a device/ user agent.
  * 
  * If rendering for a component, widget etc. should be depending on the accuracy
  * of the pointing device, the level 4 media query '@media (pointer:coarse)' is

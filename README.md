@@ -21,7 +21,7 @@ Some of these properties cannot reliably determined &mdash; "best effort" is the
 The algorithm then is:
 
 1.	If the pointer media query is supported, and the result is not 'none', use it
-2.	If the device supports touch inputd, use 'coarse'
+2.	If the device supports touch input, use 'coarse'
 3. 	Otherwise, use 'fine'
 
 # Usage
