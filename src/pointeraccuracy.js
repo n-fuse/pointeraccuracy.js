@@ -70,7 +70,7 @@ var Pointeraccuracy = {
   },
 
   getPointerMode: function() {
-    return thiz.pointerMode;
+    return this.pointerMode;
   },
 
   hasTouchSupport: function() {
