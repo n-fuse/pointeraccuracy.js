@@ -11,7 +11,7 @@ Because the W3C recommendation is currently in draft status, and browser
 support is naturally low we've created this library.
 
 # Heuristic
-The classifier uses the following four properties of the current device to make a decision:
+The classifier uses the following two properties of the current device to make a decision:
 
 * Pointer media query result 
 * Touch input capability
