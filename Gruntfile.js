@@ -1,22 +1,25 @@
 module.exports = function(grunt) {
-  // Project configuration.
+  'use strict';
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*\n' +
+                '<%= pkg.name %> | v<%= pkg.version %> | Build date: <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+                'Copyright (C) 2013 n-fuse GmbH - All Rights Reserved\n' +
+                'Licensed under the <%= pkg.licenses[0].type %> license\n' +
+                '*/\n',
+        sourceMap: 'dist/<%= pkg.name %>-source-map.js',
+        footer: '//# sourceMappingURL=<%= pkg.name %>-source-map.js'
       },
       build: {
         src: 'src/<%= pkg.name %>.js',
-        dest: 'dist/<%= pkg.name %>.min.js'
+        dest: '<%= pkg.name %>.min.js'
       }
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  // Default task(s).
   grunt.registerTask('default', ['uglify']);
-
 };
