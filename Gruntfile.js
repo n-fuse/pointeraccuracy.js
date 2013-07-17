@@ -6,7 +6,7 @@ module.exports = function(grunt) {
       options: {
         banner: '/*\n' +
                 '<%= pkg.name %> | v<%= pkg.version %> | Build date: <%= grunt.template.today("yyyy-mm-dd") %>\n' +
-                'Copyright (C) 2013 n-fuse GmbH - All Rights Reserved\n' +
+                'Copyright (C) 2013 - <%= grunt.template.today("yyyy") %> n-fuse GmbH - All Rights Reserved\n' +
                 'Licensed under the <%= pkg.licenses[0].type %> license\n' +
                 '*/\n',
         sourceMap: 'dist/<%= pkg.name %>-source-map.js',
