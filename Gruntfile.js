@@ -10,11 +10,12 @@ module.exports = function(grunt) {
                 'Licensed under the <%= pkg.licenses[0].type %> license\n' +
                 '*/\n',
         sourceMap: 'dist/<%= pkg.name %>-source-map.js',
+        sourceMapRoot: 'dist/',
         footer: '//# sourceMappingURL=<%= pkg.name %>-source-map.js'
       },
       build: {
         src: 'src/<%= pkg.name %>.js',
-        dest: '<%= pkg.name %>.min.js'
+        dest: 'dist/<%= pkg.name %>.min.js'
       }
     }
   });
